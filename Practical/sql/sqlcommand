@@ -1,1 +1,60 @@
+mysql> use piyu;
+Database changed
+mysql> create table person(
+    -> id int primary key not null,
+    -> first_name varchar(20) not null,
+    -> last_name varchar(20) not null,
+    -> address varchar(15) not null,
+    -> city varchar(10) not null,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near ')' at
+ line 7
+mysql> create table person(
+    -> id int primary key not null,
+    -> first_name varchar(20) not null,
+    -> last_name varchar(20) not null,
+    -> address varchar(15) not null,
+    -> city varchar(10) not null
+    -> );
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> insert into person values(101,'Priya','Sharma','Kurla','Mumbai');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into person values(102,'Ritika','Mamani','Ghatkoper','Mumbai');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into person values(103,'Suraj','Suryavanshi','Bhandup','Mumbai');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into person values(103,'Vinayak','Suryavanshi','Asalfha','Mumbai')
+;
+ERROR 1062 (23000): Duplicate entry '103' for key 'PRIMARY'
+mysql> insert into person values(104,'Vinayak','Suryavanshi','Asalfha','Mumbai')
+;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into person values(105,'Fardin','Shaikh','Ghatkoper','Mumbai');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> Select* from person;
++-----+------------+-------------+-----------+--------+
+| id  | first_name | last_name   | address   | city   |
++-----+------------+-------------+-----------+--------+
+| 101 | Priya      | Sharma      | Kurla     | Mumbai |
+| 102 | Ritika     | Mamani      | Ghatkoper | Mumbai |
+| 103 | Suraj      | Suryavanshi | Bhandup   | Mumbai |
+| 104 | Vinayak    | Suryavanshi | Asalfha   | Mumbai |
+| 105 | Fardin     | Shaikh      | Ghatkoper | Mumbai |
++-----+------------+-------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
 

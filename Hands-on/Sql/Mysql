@@ -1,0 +1,104 @@
+create database piyu;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| piyu               |
+| test               |
++--------------------+
+5 rows in set (0.01 sec)
+mysql> create table Employee(Employee_ID int primary key,
+    -> Employee_name varchar(20),
+    -> Adress varchar(20),
+    -> City varchar(20),
+    -> Salary int
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc Employee;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Employee_ID   | int(11)     | NO   | PRI | NULL    |       |
+| Employee_name | varchar(20) | YES  |     | NULL    |       |
+| Adress        | varchar(20) | YES  |     | NULL    |       |
+| City          | varchar(20) | YES  |     | NULL    |       |
+| Salary        | int(11)     | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> insert into Employee values(19-101,'Vinayak','Asalpha','Mumbai',45000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Employee values(19-102,'Vikas','Govandi','Mumbai',100000);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into Employee values(19-103,'Suraj','Bhandup','Mumbai',60000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Employee values(19-104,'Tejas','Ghatkoper','Mumbai',50000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> Show table Employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Employee' at line 1
+mysql> select* from Employee;
++-------------+---------------+-----------+--------+--------+
+| Employee_ID | Employee_name | Adress    | City   | Salary |
++-------------+---------------+-----------+--------+--------+
+|         -85 | Tejas         | Ghatkoper | Mumbai |  50000 |
+|         -84 | Suraj         | Bhandup   | Mumbai |  60000 |
+|         -83 | Vikas         | Govandi   | Mumbai | 100000 |
+|         -82 | Vinayak       | Asalpha   | Mumbai |  45000 |
++-------------+---------------+-----------+--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT count(*) from Employee;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.03 sec)
+
+mysql> SELECT sum(qty) from Employee;
+ERROR 1054 (42S22): Unknown column 'qty' in 'field list'
+mysql> SELECT sum(Salary) from Employee;
++-------------+
+| sum(Salary) |
++-------------+
+|      255000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT avg(Salary) from Employee;
++-------------+
+| avg(Salary) |
++-------------+
+|  63750.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT min(Salary) from Employee;
++-------------+
+| min(Salary) |
++-------------+
+|       45000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT max(Salary) from Employee;
++-------------+
+| max(Salary) |
++-------------+
+|      100000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql>
